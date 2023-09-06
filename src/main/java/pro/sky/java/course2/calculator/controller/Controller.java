@@ -14,4 +14,9 @@ public class Controller {
     public String showSum(int num1, int num2) {
         return num1 + " + " + num2 + " = " + (num1 + num2);
     }
+
+    @GetMapping("/calculator/minus")
+    public String showSubtraction(int num1, int num2) {
+        return num1 + " - " + num2 + " = " + (num1 - num2);
+    }
 }
