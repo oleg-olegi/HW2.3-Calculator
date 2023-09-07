@@ -22,7 +22,6 @@ public class CalculatorServiceImpl implements CalculatorService {
     }
 
     @Override
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public float getDivision(int num1, int num2) {
         if (num2 == 0) {
             throw new IllegalArgumentException("Деление на ноль недопустимо");
