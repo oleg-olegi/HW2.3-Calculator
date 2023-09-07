@@ -1,6 +1,5 @@
 package pro.sky.java.course2.calculator.controller;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +18,7 @@ public class Controller {
 
     @GetMapping
     public String sayWelcomeToCalc() {
-        return "Добро пожаловать в клькулятор";
+        return "Добро пожаловать в калькулятор";
     }
 
     @GetMapping("/plus")
@@ -38,13 +37,9 @@ public class Controller {
     }
 
     @GetMapping("/divide")
-    public ResponseEntity<String> showDivision(@RequestParam int num1, @RequestParam int num2) {
-        try {
-            float result = calculatorService.getDivision(num1, num2);
-            return ResponseEntity.ok(num1 + " / " + num2 + " = " + result);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ошибка: " + e.getMessage());
-        }
+    public ResponseEntity<String> showDivision(int num1, int num2) {
+        float result = calculatorService.getDivision(num1, num2);
+        return ResponseEntity.ok(num1 + " / " + num2 + " = " + result);
     }
 }
 
